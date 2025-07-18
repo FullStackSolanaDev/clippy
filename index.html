@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$CLIPPY - Solana's Unhinged AI Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #F3F3F3;
+            color: #333;
+        }
+        
+        .windows-xp-blue {
+            background-color: #0078D7;
+        }
+        
+        .windows-xp-light {
+            background-color: #F3F3F3;
+        }
+        
+        .windows-xp-title-bar {
+            background: linear-gradient(90deg, #0078D7 0%, #3E9EFF 100%);
+        }
+        
+        .windows-xp-button {
+            background: linear-gradient(180deg, #F3F3F3 0%, #E3E3E3 100%);
+            border: 1px solid #999;
+            box-shadow: inset 1px 1px 0px 0px #FFF;
+        }
+        
+        .windows-xp-button:hover {
+            background: linear-gradient(180deg, #E3E3E3 0%, #D3D3D3 100%);
+        }
+        
+        .windows-xp-button:active {
+            background: linear-gradient(180deg, #D3D3D3 0%, #C3C3C3 100%);
+            box-shadow: inset 1px 1px 2px 0px #999;
+        }
+        
+        .windows-xp-window {
+            border: 3px solid #0078D7;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+        }
+        
+        .clippy {
+            animation: float 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .clippy:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .pixel-border {
+            border: 4px solid #0078D7;
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+        }
+        
+        .error-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            25% { transform: translate(-50%, -50%) rotate(5deg); }
+            50% { transform: translate(-50%, -50%) rotate(-5deg); }
+            75% { transform: translate(-50%, -50%) rotate(5deg); }
+            100% { transform: translate(-50%, -50%) rotate(0deg); }
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 3s linear infinite;
+            background-size: 200% 100%;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Windows XP-style Title Bar -->
+    <div class="windows-xp-title-bar text-white p-2 flex justify-between items-center">
+        <div class="flex items-center">
+            <img src="https://d7hftxdivxxvm.cloudfront.net/?quality=80&resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FrH70t3aO891il3BpB67x4Q%252FClippy%2Bthumb.jpg&width=50" alt="Clippy Logo" class="h-8 w-8 mr-2">
+            <h1 class="font-bold text-lg">$CLIPPY Token</h1>
+        </div>
+        <div class="flex space-x-1">
+            <button class="windows-xp-button w-6 h-6 flex items-center justify-center">_</button>
+            <button class="windows-xp-button w-6 h-6 flex items-center justify-center">□</button>
+            <button class="windows-xp-button w-6 h-6 flex items-center justify-center">X</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="windows-xp-light flex-grow p-6 md:p-10">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
+                        <span class="rainbow-text">It looks like you're trying to ape...</span><br>
+                        <span class="text-blue-600">Need help?</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-6 text-gray-700">Solana's unhinged AI assistant is here.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/clippy_revshare?s=11" target="_blank" class="windows-xp-button px-6 py-3 rounded-lg flex items-center">
+                            <i class="fab fa-twitter mr-2 text-blue-500"></i> Twitter
+                        </a>
+                        <a href="https://t.me/Clippy_RevShare" target="_blank" class="windows-xp-button px-6 py-3 rounded-lg flex items-center">
+                            <i class="fab fa-telegram mr-2 text-blue-500"></i> Telegram
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://d7hftxdivxxvm.cloudfront.net/?quality=80&resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FrH70t3aO891il3BpB67x4Q%252FClippy%2Bthumb.jpg&width=500" alt="Clippy" class="clippy h-64 md:h-96" id="clippy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="windows-xp-blue text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="windows-xp-window bg-white text-gray-800 p-6 rounded-lg max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6 text-center text-blue-600">$CLIPPY Tokenomics</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Supply & Distribution</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 text-blue-800 p-1 rounded-full mr-3">
+                                    <i class="fas fa-coins text-sm"></i>
+                                </div>
+                                <span>1,000,000,000 total supply</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 text-blue-800 p-1 rounded-full mr-3">
+                                    <i class="fas fa-fire text-sm"></i>
+                                </div>
+                                <span>LP burnt, ownership renounced</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">5/5 Tax</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 text-blue-800 p-1 rounded-full mr-3">
+                                    <i class="fas fa-gift text-sm"></i>
+                                </div>
+                                <span>3% SOL rewards to holders</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-100 text-blue-800 p-1 rounded-full mr-3">
+                                    <i class="fas fa-code text-sm"></i>
+                                </div>
+                                <span>2% developer earnings</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Section -->
+    <section class="windows-xp-light py-12 px-6">
+        <div class="container mx-auto text-center">
+            <div class="windows-xp-window bg-blue-600 text-white p-8 rounded-lg max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-4">Hold $CLIPPY. Earn SOL. Easy.</h2>
+                <p class="text-xl mb-6">Just hold $CLIPPY in your wallet and watch the SOL rewards roll in automatically!</p>
+                <div class="flex justify-center">
+                    <div class="windows-xp-button px-8 py-4 rounded-lg text-blue-600 font-bold text-xl">
+                        <i class="fas fa-rocket mr-2"></i> TO THE MOON!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meme Popup (hidden by default) -->
+    <div class="error-popup windows-xp-window bg-white p-4 max-w-xs" id="errorPopup">
+        <div class="flex items-start mb-4">
+            <div class="bg-red-500 text-white p-2 rounded-full mr-3">
+                <i class="fas fa-exclamation"></i>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg">Clippy.exe - Application Error</h3>
+                <p class="text-sm">Are you sure you want to sell?</p>
+            </div>
+        </div>
+        <div class="flex justify-end space-x-2">
+            <button class="windows-xp-button px-4 py-1" onclick="document.getElementById('errorPopup').style.display = 'none'">Yes</button>
+            <button class="windows-xp-button px-4 py-1" onclick="document.getElementById('errorPopup').style.display = 'none'">No</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="windows-xp-blue text-white py-6 px-6 text-center">
+        <p class="mb-2">This is a meme coin for fun. No intrinsic value.</p>
+        <p class="text-sm">© 2023 $CLIPPY Token - All rights reserved (maybe)</p>
+        <button class="windows-xp-button mt-4 px-4 py-2 text-blue-600" onclick="document.getElementById('errorPopup').style.display = 'block'">
+            Try to sell $CLIPPY (don't)
+        </button>
+    </footer>
+
+    <script>
+        // Make Clippy interactive
+        const clippy = document.getElementById('clippy');
+        const messages = [
+            "It looks like you're trying to make money. Need help?",
+            "Would you like to buy more $CLIPPY?",
+            "HODL for SOL rewards!",
+            "Paper hands not allowed!",
+            "To the moon! 🚀"
+        ];
+        
+        clippy.addEventListener('click', function() {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            // Create speech bubble
+            const bubble = document.createElement('div');
+            bubble.className = 'absolute bg-white text-gray-800 p-3 rounded-lg shadow-lg max-w-xs';
+            bubble.style.bottom = '100%';
+            bubble.style.left = '50%';
+            bubble.style.transform = 'translateX(-50%)';
+            bubble.style.zIndex = '10';
+            bubble.innerHTML = `
+                <div class="relative">
+                    <p>${randomMessage}</p>
+                    <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
+                </div>
+            `;
+            
+            // Position bubble near Clippy
+            clippy.parentNode.style.position = 'relative';
+            clippy.parentNode.appendChild(bubble);
+            
+            // Remove bubble after delay
+            setTimeout(() => {
+                bubble.remove();
+            }, 3000);
+        });
+        
+        // Make Clippy move around occasionally
+        setInterval(() => {
+            const x = Math.random() * 20 - 10;
+            const y = Math.random() * 20 - 10;
+            clippy.style.transform = `translate(${x}px, ${y}px)`;
+        }, 5000);
+    </script>
+</body>
+</html>
